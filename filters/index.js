@@ -28,27 +28,34 @@ const data = [{
                 id: 0,
                 key_4: "In favor",
                 key_5: "No opinion",
-                key_6: "In favor",
+                key_6: "No opinion",
                 organisation: "Euramet ev 3",
                 waist: "In favor"
             }]
 
 
-const filtered = data.filter((el) => {
-  let filterCount = 0;
-  filter.forEach(el => { 
-    if (el.value) filterCount++
-  })
+// const filtered = data.filter((el) => {
+//   let filterCount = 0;
+//   filter.forEach(el => { 
+//     if (el.value) filterCount++
+//   })
 
-  for (let i = 0; i < filter.length; i++) {
-    const val1 = el[filter[i].name];
-    const val2 = filter[i].value;
-    if (val1 === val2) {
-      filterCount--;
-    };
-  }
-  if (filterCount === 0) return true;
-  return false;
+//   for (let i = 0; i < filter.length; i++) {
+//     const val1 = el[filter[i].name];
+//     const val2 = filter[i].value;
+//     if (val1 === val2) {
+//       filterCount--;
+//     };
+//   }
+//   if (filterCount === 0) return true;
+//   return false;
+// })
+
+const filtered = data.filter((el) => {
+  return filter.every((val) => {
+    if (!val.value) return true;
+    return el[val.name] === val.value
+  })
 })
 
 console.log(filtered)
