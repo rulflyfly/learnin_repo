@@ -9,7 +9,7 @@ const fetchRetry = async (url, retries) => {
         if (res.statusText === 'OK') return res.body;
         else {
             countDown--;
-            await fetcher(url);
+            return await fetcher(url);
         }
     }
 
