@@ -1,5 +1,5 @@
 const array1 = [4, 5, 6, 19, 21];
-const array2 = [1, 4, 5, 6, 19, 21];
+const array2 = [4, 5, 6, 19, 21, 30];
 
 function findExcessEl(array1, array2) {
     let i = 0;
